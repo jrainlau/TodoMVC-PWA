@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>TodoMVC-PWA</title>
+    <title>Todo-PWA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="TodoMVC-PWA">
+    <meta name="apple-mobile-web-app-title" content="Todo-PWA">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -14,7 +14,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
-    <meta name="application-name" content="TodoMVC-PWA">
+    <meta name="application-name" content="Todo-PWA">
   </head>
   <body>
     <section class="todoapp"></section>
