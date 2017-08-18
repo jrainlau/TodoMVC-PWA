@@ -85,9 +85,7 @@ if (process.env.NODE_ENV === 'production') {
       chunks: ['main'],
       chunksSortMode: 'dependency'
     }),
-    new cleanWebpackPlugin(['docs'], {
-      root: path.resolve('./')
-    }),
+    new cleanWebpackPlugin(['docs']),
     new copyWebpackPlugin([
       { from: 'favicons' }
     ]),
