@@ -15,12 +15,7 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-          }
-          // other vue-loader options go here
-        }
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
@@ -78,9 +73,9 @@ if (process.env.NODE_ENV === 'production') {
       template: 'index.tpl',
       inject: true,
       minify: {
-        // removeComments: true,
-        // collapseWhitespace: true,
-        // removeAttributeQuotes: true
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
       },
       chunks: ['main'],
       chunksSortMode: 'dependency'
