@@ -4,6 +4,7 @@ const offlinePlugin = require('offline-plugin')
 const cleanWebpackPlugin = require('clean-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const copyWebpackPlugin = require('copy-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -15,7 +16,17 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              use: ['css-loader']
+            }),
+            less: ExtractTextPlugin.extract({
+              use: ['css-loader', 'less-loader']
+            })
+          }
+        }
       },
       {
         test: /\.js$/,
@@ -54,6 +65,11 @@ if (process.env.NODE_ENV === 'production') {
     filename: '[name].[hash].js'
   }
   module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash:8].css',
+      allChunks: true
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -88,7 +104,8 @@ if (process.env.NODE_ENV === 'production') {
       Caches: {
         main: [
           'index.html',
-          '**.js'
+          '**.js',
+          '**.css'
         ]
       },
       ServiceWorker: {
